@@ -1,11 +1,11 @@
-// A simple Node.js chatbot that tells you the current time. Powered by IBM Watson Conversation Service. Runs on the terminal.
-
-var ConversationV1 = require('watson-developer-cloud/conversation/v1');
+const dotenv = require('dotenv');
+const ConversationV1 = require('watson-developer-cloud/conversation/v1');
+dotenv.config();
 
 var conversation = new ConversationV1({
-  username: "MY USERNAME", // add username
-  password: "MY PASSWORD",                         // add password
-  path: { workspace_id: 'MY WORKSPACE ID' }, // add workspace id
+  username: process.env.CONVERSATION_USERNAME,  // add username
+  password: process.env.CONVERSATION_PASSWORD,  // add password
+  path: { workspace_id: process.env.CONVERSATION_WORKSPACE_ID },  // add workspace id
   version_date: '2017-04-21'
 });
 
@@ -30,7 +30,7 @@ function conMessage(message) {
 
 
   conversation.message({
-    workspace_id: 'MY WORKSPACE ID', // add workspace id
+    workspace_id: process.env.CONVERSATION_WORKSPACE_ID,  // add workspace id
     input: {'text': message},
     context: context
   },

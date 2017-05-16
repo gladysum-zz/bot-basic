@@ -10,6 +10,6 @@ Steps to run:
 
 4) Open the index.js and fill in the authentication credentials from the service key, as well as the version of the Conversation API you are using.
 
-5) Run index.js.
+5) Run "npm install" and then run "npm start".
 
 6) At the prompt, enter any phrase or sentence to the effect of "What time is it?"
