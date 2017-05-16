@@ -19,5 +19,5 @@
   "dependencies": {
     "dotenv": "^4.0.0",
     "watson-developer-cloud": "^2.31.1"
-  },
+  }
 }
