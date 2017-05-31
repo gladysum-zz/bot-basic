@@ -26,7 +26,7 @@ function conMessage(message) {
   var d = new Date();
   context.period = d.getHours() < 12 ? 'AM' : 'PM';
   context.hour = d.getHours() > 12 ? d.getHours() - 12 : d.getHours();
-  context.minute = d.getMinutes();
+  context.minute = d.getMinutes() > 9 ? d.getMinutes() : '0' + d.getMinutes().toString();
 
 
   conversation.message({
@@ -37,6 +37,7 @@ function conMessage(message) {
   function(err, response){
     if (err) console.error('error: ' + err.message);
     else {
+      console.log('response', response)
       console.log('Watson: ' + response.output.text[0]);
       prompt('You: ', function(input){
         conMessage(input);
